@@ -1,0 +1,9 @@
+{% extends "cardKeeper/base.html" %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <br>
+    <input type="submit" value="{{form_method}}">
+</form>
+{% endblock %}

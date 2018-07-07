@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+"""    
+    Django Card Keeper Justin Fuhrmeister-Clarke, a media card logger.
+    Copyright (C) 2018  Justin Fuhrmeiser-Clarke <justin@fuhrmeister-clarke.com>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    """
+-->
+{% load static %}
+    <link rel="icon"  href="{% static 'favicon.svg' %}">    
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+    
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    {#% include "styles.html" %#}
+    <link rel="stylesheet" href="{% static 'cardKeeper/css/style.css' %}" />
+
+    <title>{{ title }}</title>
+</head>
+
+<body>
+    <div id="main">
+        <div id="title">
+            {{ title }}
+            <br>
+        </div>
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        <div id="navbar" class="pure-menu pure-menu-horizontal">
+            <hr>
+            {% block navbar %}
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a class="nav pure-menu-link" href="{% url 'cardKeeper:index' %}">Home</a></li>
+                
+                <li class="pure-menu-item"><a class="nav pure-menu-link" href="{% url 'cardKeeper:admin_home' %}">Admin</a></li>
+                
+            </ul>
+            {% endblock %}
+            <hr>
+        </div>
+
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+    
+        <div id="footer">
+            {#% include "footer.html" %#}
+        </div>
+    </div>
+    <script type="text/javascript" src="{% static 'cardKeeper/js/main.js' %}" ></script>
+    {#% include "scripts.html" %#}
+</body>
+</html>
+
+

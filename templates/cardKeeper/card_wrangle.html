@@ -1,0 +1,16 @@
+{% extends "cardKeeper/base.html" %}
+{% block content %}
+
+
+<form method="POST">
+    {% csrf_token %}
+    <ul>
+    <li>Card ID: {{ card.card_id }}</li>
+    <li>Group: {{ card.group }}</li>
+    <li>Description: {{ card.description }}</li>
+    </ul>
+    {{ form.as_ul }}
+    <br>
+    <input type="submit" value="Update Card">
+</form>
+{% endblock %}

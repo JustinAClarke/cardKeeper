@@ -1,0 +1,8 @@
+{% extends "cardKeeper/base.html" %}
+{% block content %}
+<ul>
+    {% for project in projects %}
+    <li><a href="#">{{ project }} Wrangle</a> - <a href="#">Edit</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

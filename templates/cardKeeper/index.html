@@ -1,0 +1,14 @@
+{% extends "cardKeeper/base.html" %}
+{% block content %}
+<divclass="pure-menu pure-menu-vertical">
+    <ul class="pure-menu-list">
+        {% if not projects %}
+        <li class="pure-menu-item"><a class="nav pure-menu-link" href="#">No Projects</a></li>
+        {% else %}
+            {% for project in projects %}
+            <li class="pure-menu-item">{{ project }} - <a class="nav pure-menu-link" href="{% url 'cardKeeper:card_add' project.id %}">Add Card</a></li>
+            {% endfor %}
+        {% endif %}
+    </ul>
+</div>
+{% endblock %}

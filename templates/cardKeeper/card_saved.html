@@ -1,0 +1,5 @@
+{% extends "cardKeeper/base.html" %}
+{% block content %}
+<h1>Card ID: {{ card_id }}</h1>
+<li><a class="" href="{% url 'cardKeeper:card_add' project_id %}">Add Another Card</a></li>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "cardKeeper/base.html" %}
+{% block content %}
+<div id="navbar" class="pure-menu pure-menu-horizontal">
+    <ul class="pure-menu-list">
+        <li class="pure-menu-item"><a class="nav pure-menu-link" href="{% url 'cardKeeper:projects_add_edit' %}">New Project</a></li>
+        
+        <li class="pure-menu-item"><a class="nav pure-menu-link" href="{#% url 'cardKeeper:admin_list' %#}">Admin</a></li>
+        
+    </ul>
+    
+</div>
+<div id="projects">
+    <ul>
+        {% for project in projects %}
+        <li><a href="{% url 'cardKeeper:card_wrangle' project.id %}">Cards {{ project }}</a> - <a href="#">Edit</a></li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
