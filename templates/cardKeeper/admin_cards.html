@@ -5,10 +5,10 @@
     <li>Cards Submitted</li>
 {% else %}
     {% with project.card_set.all as cards %}
-    {% for card in cards|reverse %}
+    {% for card in cards %}
         <li class=" {% if not card.wrangled %}unsaved{% endif %} {% if card.wrangled %}wrangled{% endif %} {% if card.assembled %}assembled{% endif %}"><a href="{% url 'cardKeeper:card_wrangle' project.id card.id %}">{{ card }} - {{ card.group }} - {{ card.description|truncatechars:60 }}</a></li>
-    {% endwith %}
     {% endfor %}
+    {% endwith %}
 {% endif %}
 </ul>
 
